@@ -1,9 +1,10 @@
-// Module Import: Importing sumExample.js module twice to demonstrate module
+// // Module Import: Importing sumExample.js module twice to demonstrate module
 require("./sumExample"); // this will import all the code
+// import { calculateSum } from "./sumExample.js"; // this will import all the code
 const calculateSum = require("./sumExample"); // this is explictly called the calculateSum
 
 // Variable Setup: Declaring constants for demonstration
-const name = "Hello World";
+// const name = "Hello World";
 const a = 120;
 const b = 20;
 
@@ -11,4 +12,5 @@ const b = 20;
 calculateSum(a, b);
 
 // Global Comparison: Testing global object equality in Node.js
-console.log(globalThis === global);
+// console.log(globalThis === global);
+console.log(module.exports === this);
