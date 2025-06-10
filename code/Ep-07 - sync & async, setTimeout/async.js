@@ -13,7 +13,7 @@ https.get("https:/dummyjson.com/products/1", (res) => {
 
 setTimeout(() => {
   console.log("Time Completed Successfully");
-}, 2000);
+}, 3000);
 
 fs.readFile("./file.txt", "utf-8", (err, data) => {
   console.log("File Data", data);
