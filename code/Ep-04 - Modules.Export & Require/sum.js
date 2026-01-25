@@ -1,15 +1,19 @@
-console.log("Sum Module Loaded");
+console.log("Hello This is Sum files");
+const { multiply } = require("./require");
 
-// ⚠️ Implicit global variable because it's not declared with let/const/var
-// This will leak into the global scope (i.e., global.x = "Hello")
-// Not recommended! Use "use strict" or declare explicitly to avoid this.
-x = "Hello";
+var x = 34;
 
-// ✅ Function to calculate and print the sum of two numbers
-function calculateSum(a, b) {
+const calculateSum = function (a, b) {
   const sum = a + b;
-  console.log(`The sum of ${a} and ${b} is = ${sum}`);
-}
+  console.log(sum);
+};
 
-// ✅ Exporting variables/functions for use in other modules
-module.exports = { x, calculateSum };
+const b = 2;
+const c = 3;
+
+multiply(b, c);
+
+module.exports = {
+  x: x,
+  calculateSum: calculateSum,
+};
