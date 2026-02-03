@@ -14,7 +14,7 @@ fs.readFile("./file.txt", () => {
   console.log("File Read");
 });
 
-// first it run all the nextTick, becuse it has highest priority queue, it will run until all the nextTick have finished
+// first it run all the nextTick, becuse it has highest priority queue, it will run until all the nextTick have finished!
 process.nextTick(() => {
   process.nextTick(() => console.log("inner next tick"));
 
@@ -22,3 +22,12 @@ process.nextTick(() => {
 });
 
 console.log("Last line of code");
+
+// Expected Output Order:
+// Last line of code
+// nextTick
+// inner next tick
+// Promise
+// timeout
+// Immediate
+// File Read

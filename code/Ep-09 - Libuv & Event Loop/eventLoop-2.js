@@ -15,7 +15,7 @@ fs.readFile("./file.txt", () => {
     console.log("File Read Timeout");
   }, 0);
 
-  process.nextTick(() => console.log("nextTick"));
+  process.nextTick(() => console.log("nextTick Inside"));
 
   setImmediate(() => {
     console.log("File Read Immediate");
@@ -24,6 +24,17 @@ fs.readFile("./file.txt", () => {
   console.log("File Read...");
 });
 
-process.nextTick(() => console.log("nextTick"));
+process.nextTick(() => console.log("nextTick outside"));
 
 console.log("Last line Read");
+
+// Expected Output Order:
+// Last line Read
+// nextTick outside
+// then promisse
+// timeout
+// immediate
+// file read...
+// nextTick Inside
+// file read immediate
+// file read timeout
